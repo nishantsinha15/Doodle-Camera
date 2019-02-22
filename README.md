@@ -7,5 +7,6 @@ Inspired by https://danmacnish.com/2018/07/01/draw-this/. But our model to work 
 
 ### Important Resources
 1. Pretrained weights for object detection - https://ai.googleblog.com/2017/06/supercharge-your-computer-vision-models.html
+    Github repo - https://github.com/tensorflow/models/tree/master/research/object_detection
 2. The actual github repo https://github.com/danmacnish/cartoonify
 3. Demo similar to our work interest(Super awesome) - https://www.kapwing.com/cartoonify 
