@@ -10,3 +10,4 @@ Inspired by https://danmacnish.com/2018/07/01/draw-this/. But our model to work 
     Github repo - https://github.com/tensorflow/models/tree/master/research/object_detection
 2. The actual github repo https://github.com/danmacnish/cartoonify
 3. Demo similar to our work interest(Super awesome) - https://www.kapwing.com/cartoonify 
+4. Keras code and models for Object Detection SSD - https://github.com/pierluigiferrari/ssd_keras
