@@ -11,6 +11,7 @@ Inspired by https://danmacnish.com/2018/07/01/draw-this/. But our model to work 
 2. The actual github repo https://github.com/danmacnish/cartoonify
 3. Demo similar to our work interest(Super awesome) - https://www.kapwing.com/cartoonify 
 4. Keras code and models for Object Detection SSD - https://github.com/pierluigiferrari/ssd_keras
+5. Image Similarity - https://stackoverflow.com/questions/4196453/simple-and-fast-method-to-compare-images-for-similarity?rq=1
 
 ## Pipeline (Tentative)
 1. Use some pre-trained model for object detection.
