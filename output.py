@@ -3,6 +3,7 @@ import numpy as np
 import ndjson
 import matplotlib.pyplot as plt
 import os
+from sklearn.decomposition import PCA
 # a = np.load('full_numpy_bitmap_flower.npy')
 # a = np.load('full_numpy_bitmap_flower.npy')
 # img = cv2.imread('flower.jpg')
@@ -49,17 +50,6 @@ def cosine_sim(a, b):
 	c /= np.linalg.norm(a)*np.linalg.norm(b)
 	return c
 
-def final(img,typee,coordinate):
-	fin = np.zeros(img.shape)
-	for i,j in zip(typee,coordinate):
-		crp = crop(img,j)
-		doodle = sketch(crp)
-		doodle_set = set(type)
-		closest_doodle = closest(doodle,doodle_set) [0]
-		resized_doodle = preprocess(closest_doodle)
-		fin = map(fin,resized_doodle,j[2][0]-j[0][0],j[1][1]-j[0][1],j[0][0],j[0][1])
-	return fin
-
 
 def preprocess(img):
 	img = cv2.resize(img,(256,256),interpolation = cv2.INTER_AREA)
@@ -73,11 +63,11 @@ def crop(img,coordinate):
 	crp =  img[coordinate[0][0]:coordinate[2][0],coordinate[0][1]:coordinate[1][1]]
 	return crp
 
-def set(type):
+def set(typee):
 	# return set of doodle list of 28x28
 	dir = os.listdir('data')
 	for file in dir:
-		if ('full_numpy_bitmap_'+type+'.npy' == file):
+		if ('full_numpy_bitmap_'+typee+'.npy' == file):
 			return np.load('data/'+file)
 # print(set('car').shape)
 def closest(sketch,doodle_set):
@@ -89,18 +79,36 @@ def closest(sketch,doodle_set):
 	N = 0
 	te = 1000
 	ii = 0
-	for i,n in zip(newdata,range(len(newdata))):
-		t = abs(cosine_sim(sketch,i))
-		closeness.append(t)
+	# for i,n in zip(newdata,range(len(newdata))):
+	# 	t = abs(cosine_sim(sketch,i))
+	# 	closeness.append(t)
 
-	neww = [x for _,x in sorted(zip(closeness,data))]
-	return ([neww[999],neww[998],neww[997],neww[996],neww[995]])
+	# neww = [x for _,x in sorted(zip(closeness,doodle_set))]
+	# return ([neww[999],neww[998],neww[997],neww[996],neww[995]])
+	return [doodle_set[999]]
+def final(img,typee,coordinate):
+	fin = np.zeros(img.shape)
+	for i,j in zip(typee,coordinate):
+		crp = crop(img,j)
+		doodle = sketch(crp).flatten()
+		doodle_set = set(i)[0:1000]
+		
+		closest_doodle = closest(doodle,doodle_set)[0]
+		closest_doodle = np.asarray(closest_doodle)
+		# .resize((28,28))
+		# print(type(closest_doodle))
+		plt.imshow(closest_doodle)
+		plt.show()
+		# resized_doodle = preprocess(closest_doodle)
+		# fin = map(fin,resized_doodle,j[2][0]-j[0][0],j[1][1]-j[0][1],j[0][0],j[0][1])
+	# return fin
 
-# img = cv2.imread('dog.jpg',0)
-# coordinate = np.array([[50,100],[50,300],[300,100],[300,300]])
-# img = crop(img,coordinate)
-# plt.imshow(img)
-# plt.show()
+
+img = cv2.imread('fan.jpeg',0)
+# img1 = cv2.imread('flower.jpg',0)
+# fin = np.zeros((600,800))
+fin = final(img,['fan'],[[[0,0],[0,600],[400,0],[400,600]]])
+
 
 
 
