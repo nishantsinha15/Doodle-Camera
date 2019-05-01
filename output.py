@@ -104,11 +104,11 @@ def final(img,typee,coordinate):
 	# return fin
 
 
-img = cv2.imread('fan.jpeg',0)
-# img1 = cv2.imread('flower.jpg',0)
-# fin = np.zeros((600,800))
-fin = final(img,['fan'],[[[0,0],[0,600],[400,0],[400,600]]])
-
+# img = cv2.imread('fan.jpeg',0)
+# # img1 = cv2.imread('flower.jpg',0)
+# # fin = np.zeros((600,800))
+# fin = final(img,['fan'],[[[0,0],[0,600],[400,0],[400,600]]])
+#
 
 
 
