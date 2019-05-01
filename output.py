@@ -79,13 +79,13 @@ def closest(sketch,doodle_set):
 	N = 0
 	te = 1000
 	ii = 0
-	# for i,n in zip(newdata,range(len(newdata))):
-	# 	t = abs(cosine_sim(sketch,i))
-	# 	closeness.append(t)
+	for i,n in zip(newdata,range(len(newdata))):
+		t = abs(cosine_sim(sketch,i))
+		closeness.append(t)
 
-	# neww = [x for _,x in sorted(zip(closeness,doodle_set))]
-	# return ([neww[999],neww[998],neww[997],neww[996],neww[995]])
-	return [doodle_set[999]]
+	neww = [x for _,x in sorted(zip(closeness,doodle_set))]
+	return ([neww[999],neww[998],neww[997],neww[996],neww[995]])
+	# return [doodle_set[999]]
 def final(img,typee,coordinate):
 	fin = np.zeros(img.shape)
 	for i,j in zip(typee,coordinate):
@@ -95,20 +95,18 @@ def final(img,typee,coordinate):
 		
 		closest_doodle = closest(doodle,doodle_set)[0]
 		closest_doodle = np.asarray(closest_doodle)
-		# .resize((28,28))
-		# print(type(closest_doodle))
-		plt.imshow(closest_doodle)
-		plt.show()
-		# resized_doodle = preprocess(closest_doodle)
-		# fin = map(fin,resized_doodle,j[2][0]-j[0][0],j[1][1]-j[0][1],j[0][0],j[0][1])
-	# return fin
+
+		closest_doodle1 = closest_doodle.astype(float).reshape((28,28))
+		resized_doodle = preprocess(closest_doodle1)
+		fin = map(fin,resized_doodle,j[2][0]-j[0][0],j[1][1]-j[0][1],j[0][0],j[0][1])
+	return fin
 
 
-# img = cv2.imread('fan.jpeg',0)
-# # img1 = cv2.imread('flower.jpg',0)
-# # fin = np.zeros((600,800))
-# fin = final(img,['fan'],[[[0,0],[0,600],[400,0],[400,600]]])
-#
+img = cv2.imread('fan.jpeg',0)
+fin = final(img,['fan'],[[[0,0],[0,600],[400,0],[400,600]]])
+plt.imshow(fin)
+plt.show()
+
 
 
 
