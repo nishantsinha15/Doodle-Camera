@@ -1,7 +1,5 @@
-# Google-Quick-Draw
+# Doodle Camera
 ![alt text](https://github.com/nishantsinha15/Doodle-Camera/blob/master/Data/Doodle%20Camera.png)
-
-## Idea 1
 A doodle camera. 
 Inspired by https://danmacnish.com/2018/07/01/draw-this/. But our model to work with mobile cameras. 
 
