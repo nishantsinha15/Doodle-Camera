@@ -1,5 +1,5 @@
 # Google-Quick-Draw
-Some ML model using the quick draw dataset of google
+![alt text](https://github.com/nishantsinha15/Doodle-Camera/blob/master/Data/Doodle%20Camera.png)
 
 ## Idea 1
 A doodle camera. 
