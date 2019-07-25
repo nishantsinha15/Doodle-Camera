@@ -1,4 +1,4 @@
-# Doodle Camera
+# Doodle Me
 ![Poster with results](https://github.com/nishantsinha15/Doodle-Camera/blob/master/Data/Doodle%20Me.png)
 A doodle camera. 
 Inspired by https://danmacnish.com/2018/07/01/draw-this/. But our model to work with mobile cameras. 
